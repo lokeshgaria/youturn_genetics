@@ -10,75 +10,118 @@ function FirstNameValidation() {
   let nameCount = firstName.length;
   if (nameCount == "") {
     firstNameErorr.innerText = "**Please enter first name";
+    firstnameSucess.innerText = " ";
+
   }
 
   else {
     if (!firstName.match(letters)) {
       firstNameErorr.innerText = " **invalid Input ";
       btn.setAttribute('disabled', 'disabled');
+      document.getElementById("submitRejis").style.cursor = "not-allowed";
       firstnameSucess.innerText = " ";
     }
     else if (nameCount < 4) {
       firstNameErorr.innerText = " **Name length should be greater than 3 ";
       btn.setAttribute('disabled', 'disabled');
+      btn.style.cursor = "not-allowed";
+      document.getElementById("submitRejis").style.cursor = "not-allowed";
       firstnameSucess.innerText = " ";
     }
     else if (nameCount > 20) {
       firstNameErorr.innerText = " **Name length should be less than 20 ";
       btn.setAttribute('disabled', 'disabled');
+      btn.style.cursor = "not-allowed";
+      document.getElementById("submitRejis").style.cursor = "not-allowed";
       firstnameSucess.innerText = " ";
     }
     else {
       firstNameErorr.innerText = " ";
       firstnameSucess.innerText = "correct ✔";
+      btn.style.cursor = "pointer";
       btn.removeAttribute('disabled', 'disabled');
+      document.getElementById("submitRejis").style.cursor = "pointer";
     }
   }
 }
 // --Last name validation
 function LastNameValidation() {
   var lastName = document.getElementById('l_name').value;
-  
+  var lastnamesuccess = document.getElementById('l_name_sucess');
   var lastNameErorr = document.getElementById('l_nameError');
   let letters = /^[A-Za-z]+$/;
   let nameCount = lastName.length;
 
-  if (nameCount == "") { lastNameErorr.innerText = "**Please Enter last Name" }
+  if (nameCount == "") {
+    lastNameErorr.innerText = "**Please Enter last Name";
+    lastnamesuccess.innerText = " ";
+
+  }
   else if (!lastName.match(letters)) {
-     lastNameErorr.innerText = " **invalid Input "; 
-     btn.innerText="please wait..";
-     btn.setAttribute('disabled','disabled');
-    }
-  else if (nameCount < 4) { lastNameErorr.innerText = " **Name length should be greater than 3 ";   
-     btn.setAttribute('disabled','disabled');
-}
-  else if (nameCount > 20) { lastNameErorr.innerText = " **Name length should be less than 20 ";  
-      btn.setAttribute('disabled','disabled');
+    lastNameErorr.innerText = " **invalid Input ";
+    document.getElementById("submitRejis").style.cursor = "not-allowed";
+    btn.setAttribute('disabled', 'disabled');
+    lastnamesuccess.innerText = " ";
 
-}
+  }
+  else if (nameCount < 4) {
+    lastNameErorr.innerText = " **Name length should be greater than 3 ";
+    btn.setAttribute('disabled', 'disabled');
+    document.getElementById("submitRejis").style.cursor = "not-allowed";
+    lastnamesuccess.innerText = " ";
 
-  else { lastNameErorr.innerText = " "; 
-  btn.removeAttribute('disabled','disabled');
-}
-}
+  }
+  else if (nameCount > 20) {
+    lastNameErorr.innerText = " **Name length should be less than 20 ";
+    btn.setAttribute('disabled', 'disabled');
+    document.getElementById("submitRejis").style.cursor = "not-allowed";
+    lastnamesuccess.innerText = " ";
 
+  }
+
+  else {
+    lastNameErorr.innerText = " ";
+    btn.removeAttribute('disabled', 'disabled');
+    lastnamesuccess.innerText = "correct ✔";
+    document.getElementById("submitRejis").style.cursor = "pointer";
+  }
+}
 //Email Validation 
 function emailVal() {
   var email = document.getElementById('email').value;
   var emailError = document.getElementById('emailError');
+  var emailSuccess = document.getElementById('emailsucess');
   var emailCount = email.length;
   var validmail = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
   if (emailCount == "") {
     emailError.innerText = "**Please Enter your Email ID";
+    emailSuccess.innerText = " ";
   }
   else {
     if (emailCount < 5) {
-      emailError.innerText = "Email Length should be Greater then 5"
+      emailError.innerText = "Email Length should be Greater then 5";
+      document.getElementById("submitRejis").style.cursor = "not-allowed";
+      btn.setAttribute('disabled', 'disabled');
+      emailSuccess.innerText = " ";
     }
-    else if (!email.match(validmail)) { emailError.innerText = " Invalid email " }
-    else if (emailCount > 40) { emailError.innerText = "Email Length should be less then 40" }
-
-    else { emailError.innerText = " "; }
+    else if (!email.match(validmail)) {
+      emailError.innerText = " Invalid email ";
+      document.getElementById("submitRejis").style.cursor = "not-allowed";
+      emailSuccess.innerText = " ";
+      btn.setAttribute('disabled', 'disabled');
+    }
+    else if (emailCount > 40) {
+      emailError.innerText = "Email Length should be less then 40";
+      emailSuccess.innerText = " ";
+      document.getElementById("submitRejis").style.cursor = "not-allowed";
+      btn.setAttribute('disabled', 'disabled');
+    }
+    else {
+      emailError.innerText = " ";
+      emailSuccess.innerText = "correct ✔";
+      btn.removeAttribute('disabled', 'disabled');
+      document.getElementById("submitRejis").style.cursor = " pointer";
+    }
   }
 
 
@@ -86,47 +129,72 @@ function emailVal() {
 //country Validation
 function counVal() {
   var conCode = document.getElementById('country').value;
+  var consuccess = document.getElementById('countrySuccess');
   var conError = document.getElementById('countryError');
   var conCount = conCode.length;
 
   if (conCount == "") {
     conError.innerText = "**select country"
+    consuccess.innerText = " ";
+    btn.setAttribute('disabled', 'disabled');
+    document.getElementById("submitRejis").style.cursor = "not-allowed";
+
   } else {
     conError.innerText = " ";
+    btn.removeAttribute('disabled', 'disabled');
+    document.getElementById("submitRejis").style.cursor = "pointer";
+    consuccess.innerText = "correct ✔";
   }
 }
 //Phone Number Validation
 function phoneVal() {
   var phVal = document.getElementById('phone').value;
   var phError = document.getElementById('phoneError');
+  var phsuccess = document.getElementById('phonesuccess');
   var phCount = phVal.length;
   let letters = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
-  if (phCount == " ") { phError.innerText = "**please enter your phone number"; }
+  if (phCount == " ") {
+    phError.innerText = "**please enter your phone number";
+    phsuccess.innerText = " ";
+   btn.setAttribute('disabled', 'disabled');
+  }
   else {
-    if (!phVal.match(letters)) { phError.innerText = "**invalid contact number";; }
+    if (!phVal.match(letters)) {
+      phError.innerText = "**invalid contact number";
+      phsuccess.innerText = " ";
+      document.getElementById("submitRejis").style.cursor = "not-allowed";
+      btn.setAttribute('disabled', 'disabled');
+    }
 
-    else { phError.innerText = " "; }
+    else {
+      phError.innerText = " ";
+      btn.removeAttribute('disabled', 'disabled');
+      document.getElementById("submitRejis").style.cursor = "pointer";
+      phsuccess.innerText = "correct ✔";
+    }
   }
 }
-
 //date validation 
 function dateVal() {
 
   var dateControl = document.querySelector('input[type="date"]').value;
   var dateError = document.getElementById('dateError');
+  var date = document.getElementById('date').value;
+   var datesuccess = document.getElementById('dateSuccess');
 
-
-  if (dateControl === " ") {
-    dateError.innerText = "**enter date value"
+  if (date == "") {
+    dateError.innerText = "**enter date value";
+    datesuccess.innerText = "  ";
   } else {
     dateError.innerText = " ";
+    datesuccess.innerText = "correct✔";
   }
 }
-
 //password Validation
 function passVal() {
   var pass = document.getElementById('password').value;
   var passError = document.getElementById('passError');
+  var passCorr = document.getElementById('passcorrect');
   var passcount = pass.length;
   // To check a password between 7 to 15 characters which contain at least one numeric digit and a special character
   var pasVal = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{7,15}$/;
@@ -134,18 +202,32 @@ function passVal() {
 
   if (passcount == " ") {
     passError.innerText = "**please enter your password";
+    passCorr.innerText = " ";
+    
+    btn.setAttribute('disabled', 'disabled');
+
   } else {
-    if (!pass.match(pasVal)) { passError.innerText = "password between 7 to 15 characters which contain at least one numeric digit and a special character";; }
-    else { passError.innerText = " "; }
+    if (!pass.match(pasVal)) {
+      passError.innerText = "password between 7 to 15 characters which contain at least one numeric digit and a special character";
+      btn.setAttribute('disabled', 'disabled');
+      document.getElementById("submitRejis").style.cursor = "not-allowed";
+      passCorr.innerText = " ";
+    }
+    else {
+      passError.innerText = " ";
+      btn.removeAttribute('disabled', 'disabled');
+      document.getElementById("submitRejis").style.cursor = "pointer";
+      passCorr.innerText = " correct ✔";
+    }
 
   }
 
 }
-
 //confirm password 
 function cpassVal() {
   var cpass = document.getElementById('con_password').value;
   var pass = document.getElementById('password').value;
+  var cpassCorrect = document.getElementById('con_passSuccess');
   var cpassError = document.getElementById('con_passError');
 
   var passcount = pass.length;
@@ -155,16 +237,24 @@ function cpassVal() {
     cpassError.innerText = "**please enter confirm password";
   } else {
     if (cpass !== pass) {
-      cpassError.innerText = "**password and confirm password are not matching";;;
+      cpassError.innerText = "**password and confirm password are not matching";
+      document.getElementById("submitRejis").style.cursor = "not-allowed";
+      btn.setAttribute('disabled', 'disabled');
+      cpassCorrect.innerText = " ";
     }
-    else { cpassError.innerText = " "; }
+    else {
+      cpassError.innerText = " ";
+      btn.removeAttribute('disabled', 'disabled');
+      document.getElementById("submitRejis").style.cursor = "pointer";
+      cpassCorrect.innerText = "correct ✔ ";
+    }
 
   }
 
 
 
 }
-// calling functions 
+ // calling functions 
 function validations() {
 
   FirstNameValidation();
@@ -175,66 +265,13 @@ function validations() {
   dateVal();
   passVal();
   cpassVal();
-
+  
 
 }
-/**
-<style>
-  #snakbar{
-    visibility:hidden;
-    min-width:250px;
-    margin-left:-125px;
-    background-color:#333;
-    color:#fff;
-    text-align:center;
-    border-radius:2px;
-    padding:10px;
-    position:fixed;
-    z-index:1;
-    left:50%;
-    bottom:30px;
-    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
-    animation: fadein 0.5s, fadeout 0.5s 2.5s;	
-  }
-  #snackbar .show{
-    visibility:visible;
-  }
-
-  @-webkit-animation-keyframes fadein{
-    from{bottom:0;opacity:0}
-    to{bottom:30px;opacity:1}
-  }
-
-  @keyframes fadein{
-    from{bottom:0;opacity:0}
-    to{bottom:30px;opacity:1}
-  }
-
-  @-webkit-animation-keyframes fadeout{
-    from{bottom:30;opacity:1}
-    to{bottom:0;opacity:0}
-  }
-  @keyframes fadeout{
-    from{bottom:30;opacity:1}
-    to{bottom:0;opacity:0}
-  }
-</style>
-
-
-<button onclick="showToast();">Show Toast</button>
-<div id="snackbar">Here goes the toast message</div>
-
-
-
-
-<script>
-function showToast(){
-  var x = document.getElementById('snackbar');
-  x.className = "show";
-
-  setTimeout(function(){
-    x.className = x.className.replace('show','');
-  },3000);
+//check box validation
+function stop(event) {
+  event.preventDefault();
 }
-</script> 
-**/
+
+
+
