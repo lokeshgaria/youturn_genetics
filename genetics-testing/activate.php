@@ -9,7 +9,7 @@
         if ($run) {
           
            $_SESSION['activated'] = "Thankyou! your Email is verified";
-           header("location:http://localhost/signin-master/genetics-testing/signin.php");
+           header("location: http://localhost/genetics-testing/signin.php");
         }else{
             echo "account not activated";
         }

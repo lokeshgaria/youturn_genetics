@@ -1,4 +1,10 @@
-<?php session_start(); ?>
+<?php session_start(); 
+if (!isset($_SESSION['username'])) {
+   $msg = "sign in";
+}else{
+  $msg = $_SESSION['username'];
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,7 +12,10 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content=" width=device-width, initial-scale=1, maximum-scale=1">
- 
+ <script>
+   function  exitdiv() {
+                      document.getElementById("alertbox").style.visibility="hidden";
+                }</script>
   <title>Genetic Testing</title>
 
   <!-- favicon icon -->
@@ -141,7 +150,9 @@
                     </ul>
                   </nav>
                   <div class="header_extra d-flex flex-row align-items-center justify-content-end">
-                    <div class=""> <a class="ttm-btn ttm-btn-size-md ttm-btn-shape-rounded ttm-icon-btn-left ttm-btn-color-grey" href="signin.php"> <i class="fa fa-user"></i>Sign In</a>
+                    <div class=""> <a class="ttm-btn ttm-btn-size-md ttm-btn-shape-rounded ttm-icon-btn-left ttm-btn-color-grey text-capitalize" href="signin.php"> <i class="fa fa-user"></i> <?php echo  $msg; ?></a>
+                    </div>
+                    <div class=""> <a class="ttm-btn ttm-btn-size-md ttm-btn-shape-rounded ttm-icon-btn-left ttm-btn-color-grey" href="logout.php"> Logout</a>
                     </div>
 
                     <div class="header_cart"> <a href="cart.php" class="button-cart">

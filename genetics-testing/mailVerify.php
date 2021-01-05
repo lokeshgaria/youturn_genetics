@@ -8,11 +8,11 @@ if (isset($_POST['verify']) && $_GET['cid']) {
     
     $to_mail = "$email";
     $subject = "Simple Email Test via PHP";
-    $body = "Hi ,$f_name click on the link to activate your account : http://localhost/signin-master/genetics-testing/activate.php?cid=$cid";
-    $headers = "From : lokeshgaria8811@gmail.com";
+    $body = "Hi ,$f_name click on the link to activate your account : http://localhost/genetics-testing/activate.php?cid=$cid";
+    $headers = "From : maishainfotech123@gmail.com";
      
      if (mail($to_mail , $subject ,$body , $headers)) {
-         
+         echo "success";
      }else {
            echo "failed " . $to_mail;
      }
@@ -54,7 +54,7 @@ if (isset($_POST['verify']) && $_GET['cid']) {
                     </div>
                     <div class="accordion">
                         <!-- Activate Button -->
-                       <form action="" method="post">
+                       <form action="" method="post" onsubmit="return false">
                         <div class="toggle ttm-style-classic ttm-toggle-title-bgcolor-grey ttm-control-right-true">
                             <div id="mainpara" style=" background: #0369a4; width: 30%; position: absolute; left: 35%; text-align: center;padding: 9px;text-transform: capitalize; border-radius: 3px; font-size:18px; font-weight: 500;"><input type="submit" value="Verify Mail" name="verify" style="background: rgb(3, 105, 164); font-size: 22px;" id="resend" onclick="emailverification()" > </div>
 
@@ -64,7 +64,7 @@ if (isset($_POST['verify']) && $_GET['cid']) {
                         <!-- Activate Button end -->
                     </div>
                     <div class="container " style="display: flex;width: 50%;position: relative;top: 77px;left: -1%; justify-content: space-evenly;">
-                        <p style="position: relative; top: 7px;font-weight: bold; font-size:20px;"><span id="min">0.</span><span id="demo">6</span></p>
+                        <p style="position: relative; top: 7px;font-weight: bold; font-size:20px;"><span id="min">0.</span><span id="demo">60</span></p>
                     </div>
 
                 </div>
@@ -82,7 +82,7 @@ if (isset($_POST['verify']) && $_GET['cid']) {
 
 <script>
     function emailverification() {
-        var countDown = 6;
+        var countDown = 60;
         var clickable = document.getElementById('resend');
         var time = setInterval(function() {
             countDown--;

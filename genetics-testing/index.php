@@ -14,7 +14,7 @@
                         <img src="images/slides/banner1.jpg" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina="">
                       
                         <!-- LAYERS -->
-
+                      
                         <!-- LAYER NR. 1 -->
                        <div class="tp-caption tp-resizeme" id="slide-7-layer-3" data-x="['left','left','left','left']" data-hoffset="['80','40','30','20']" data-y="['middle','middle','middle','middle']" data-voffset="['-95','-95','-60','-42']" data-fontsize="['55','60','60','40']" data-lineheight="['70','70','70','40']" data-fontweight="['700','700','700','700']" data-color="#031b4e" data-width="none" data-height="none" data-whitespace="nowrap" data-transform_idle="o:1;" data-transform_in="x:-50px;opacity:0;s:1000;e:Power2.easeOut;" data-transform_out="opacity:0;s:1000;e:Power4.easeIn;" data-start="900" data-textalign="['inherit','inherit','inherit','inherit']" data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]" data-type="text" data-responsive_offset="on" style="z-index:13;font-family:Poppins,sans-serif;">Build a tree <span class="ttm-textcolor-skincolor"> & magnify</span>
                         </div>
@@ -87,6 +87,7 @@
                 <div class="title-header">
                   <h5>Overview</h5>
                   <h2 class="title">About DNA</h2>
+                 
                 </div>
                 <div class="title-desc">Genetic testing involves examining your DNA, the chemical database that carries instructions for your body's functions. Genetic testing can reveal changes (mutations) in your genes that may cause illness or disease.</div>
                 <div class="title-desc">Although genetic testing can provide important information for diagnosing, treating and preventing illness, there are limitations. For example, if you're a healthy person, a positive result from genetic testing doesn't always mean you will develop a disease. On the other hand, in some situations, a negative result doesn't guarantee that you won't have a certain disorder.</div>
