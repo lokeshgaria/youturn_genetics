@@ -27,11 +27,7 @@ if(isset($_GET['code']))
   $facebook->setDefaultAccessToken($_SESSION['access_token']);
  }
 
-  
- 
-  
-
- $graph_response = $facebook->get("/me?fields=id,name,first_name,last_name", $access_token);
+$graph_response = $facebook->get("/me?fields=name,email", $access_token);
 
  $facebook_user_info = $graph_response->getGraphUser();
 
@@ -40,23 +36,21 @@ if(isset($_GET['code']))
   $_SESSION['user_image'] = 'http://graph.facebook.com/'.$facebook_user_info['id'].'/picture';
  }
 
- if(!empty($facebook_user_info['first_name']))
+ if(!empty($facebook_user_info['name']))
  {
-  $_SESSION['first_name'] = $facebook_user_info['first_name'];
-  
+  $_SESSION['name'] = $facebook_user_info['name'];
+   
  }
 
- if(!empty($facebook_user_info['last_name']))
- {
-  $_SESSION['last_name'] = $facebook_user_info['last_name'];
- }
-
- if(!empty($facebook_user_info['email']))
+if(!empty($facebook_user_info['email']))
  {
   $_SESSION['user_email_address'] = $facebook_user_info['email'];
  }
  
- $name = $_SESSION['first_name'];
+ echo  $_SESSION['user_email_address'];
+ 
+}
+/*$name = $_SESSION['first_name'];
  $lname = $_SESSION['last_name'];
  $email = $_SESSION['user_email_address'];
  $CID =  "dsd";
@@ -81,8 +75,7 @@ if(isset($_GET['code']))
          <button type="button" onclick="exitdiv()" style="color: #ca4f20;background-color: #f8d7da;margin-top: 0px;font-size: 25px;border-radius: 33px; padding:2px 21px;">&times;</button>
      </div>
  <?php }
-
-}
+*/
 else
 {
  // Get login url
